@@ -112,6 +112,7 @@ function App() {
         />
       </header>
       <main>
+        <p className="instruction">Select a card. Memorize the card. Never click on that same card again.</p>
         <Board handleIsSelect={handleIsSelect} lists={lists} setList={setList} />
         <Dialog
           isWinner={isWinner}
