@@ -3,7 +3,7 @@ import "./styles/App.css";
 import { Board } from "./components/board";
 import { Result } from "./components/result";
 import { Dialog } from "./components/dialog";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { assignNewId, closest, shuffleList } from "./utils";
 
 class Card {
@@ -14,7 +14,7 @@ class Card {
   }
 }
 
-const cardNames = ["Pick", "wandering"];
+const cardNames = ["Pick", "wandering", "grace", "honor"];
 
 const cardList = [];
 
@@ -27,6 +27,7 @@ function App() {
   const [isWinner, setIsWinner] = useState(false);
   const [lists, setList] = useState(cardList);
   const [score, setScore] = useState(0);
+  const bestScoreRef = useRef(0);
 
   const isSelect = (id) => {
     const index = lists.findIndex((list) => list.id === id);
@@ -41,6 +42,10 @@ function App() {
 
       const newScore = score + 1;
       setScore(newScore);
+
+      if (newScore > bestScoreRef.current) {
+        bestScoreRef.current = newScore;
+      }
 
       if (newScore === lists.length) {
         setIsWinner(true);
@@ -76,7 +81,7 @@ function App() {
   return (
     <>
       <header>
-        <Result score={score} />
+        <Result score={score} bestScore={bestScoreRef.current} />
       </header>
       <main>
         <Board handleIsSelect={handleIsSelect} lists={lists} />
