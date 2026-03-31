@@ -46,7 +46,6 @@ header {
   font-weight: 900;
   font-size: 2rem;
   transition: 1000ms;
-  transform: translateY(0px) scale(0);
   opacity: 0;
   color: var(--pri-accent);
   background-color: var(--transparent-black-lg);
@@ -56,6 +55,11 @@ header {
   justify-content: center;
   align-items: center;
   text-align: center;
+  
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, 0) scale(0);
 }
 
 .instruction{
@@ -105,5 +109,5 @@ header {
 .active {
   transition: 400ms;
   opacity: 1;
-  transform: translateY(70px) scale(0.8);
+  transform: translate(-50%, 50%) scale(0.8);
 }
