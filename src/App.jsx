@@ -1,14 +1,23 @@
-import "./App.css";
+import "./styles/App.css";
 
-import { useState } from "react";
 import { Board } from "./components/board";
+import { Result } from "./components/result";
+import { Dialog } from "./components/dialog";
+import { useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [isWinner, setIsWinner] = useState(false);
 
   return (
     <>
-      <Board />
+      <header>
+        <Result onWinner={setIsWinner} />
+      </header>
+      <main>
+        <Board onGameOver={setIsGameOver} isGameOver={isGameOver} />
+        <Dialog isWinner={isWinner} isGameOver={isGameOver} />
+      </main>
     </>
   );
 }
