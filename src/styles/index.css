@@ -81,7 +81,7 @@ h6 {
 :root {
   --text: #6b6375;
   --text-h: #0f325d;
-  --accent: rgb(6, 73, 92);
+  --pri-accent: rgb(6, 73, 92);
   --sec-accent: rgb(186, 222, 232);
   --white: rgb(255, 255, 255);
   --black: rgb(0, 0, 0);

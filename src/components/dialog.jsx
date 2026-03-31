@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export function Dialog({ isWinner, isGameOver, reset }) {
+export function Dialog({ isWinner, isGameOver, score, cardLen, reset }) {
   const dialogRef = useRef(null);
 
   let status;
@@ -9,7 +9,7 @@ export function Dialog({ isWinner, isGameOver, reset }) {
   if (isLoser) {
     status = (
       <div>
-        <p>You Lose</p>
+        <p>You Lose 🙆</p>
         <button>Try again</button>
       </div>
     );
@@ -18,7 +18,7 @@ export function Dialog({ isWinner, isGameOver, reset }) {
   if (isWinner) {
     status = (
       <div>
-        <p>You Won</p>
+        <p>You Won 🎉</p>
         <button>Play again</button>
       </div>
     );
@@ -35,9 +35,10 @@ export function Dialog({ isWinner, isGameOver, reset }) {
   }
 
   return (
-    <dialog ref={dialogRef}>
+    <dialog ref={dialogRef} className="display_final_result">
       <form action="" onSubmit={handleCloseDialog}>
         <p>Game Over</p>
+        <p>Score: {score} / {cardLen}</p>
         {status}
       </form>
     </dialog>

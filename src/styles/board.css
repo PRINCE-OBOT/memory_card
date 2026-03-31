@@ -1,10 +1,18 @@
-section#board{
-    width: min(500px, 95%);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+section#board {
+  width: min(450px, 95%);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sz-sm);
+  justify-content: center;
+  background-color: var(--transparent-black-lg);
+  padding: var(--sz-sm);
+  border-radius: var(--sz-sm);
+  flex: 1;
+  margin: 0 auto 0;
 }
 
 .card_item {
-  aspect-ratio: 1/1;
-  background: red;
+  aspect-ratio: 0.8/1;
+  background: rgb(234, 233, 230);
+  border-radius: var(--sz-sm);
 }

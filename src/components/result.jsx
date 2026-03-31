@@ -1,8 +1,10 @@
-export function Result({ score, bestScore }) {
+export function Result({ score, bestScore, cardLen }) {
   return (
-    <section>
-      <p>{score}</p>
-      <p>{bestScore}</p>
+    <section id="result">
+      <p>
+        Score ⌛: {score} / {cardLen}
+      </p>
+      <p>Best Score🏆: {bestScore}</p>
     </section>
   );
 }

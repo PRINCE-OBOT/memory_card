@@ -3,7 +3,7 @@ import "./styles/App.css";
 import { Board } from "./components/board";
 import { Result } from "./components/result";
 import { Dialog } from "./components/dialog";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { assignNewId, closest, shuffleList } from "./utils";
 
 class Card {
@@ -14,7 +14,17 @@ class Card {
   }
 }
 
-const cardNames = ["Pick", "wandering", "grace", "honor"];
+const cardNames = [
+  "Pick",
+  "wandering",
+  "grace",
+  "honor",
+  "oghene",
+  "hope",
+  "sandra",
+  "honest",
+  "peace"
+];
 
 const cardList = [];
 
@@ -27,7 +37,16 @@ function App() {
   const [isWinner, setIsWinner] = useState(false);
   const [lists, setList] = useState(cardList);
   const [score, setScore] = useState(0);
-  const bestScoreRef = useRef(0);
+  const bestScoreRef = useRef(score);
+  const floatingScoreRef = useRef(null);
+
+  const cardLen = lists.length
+
+  useEffect(() => {
+    setTimeout(() => {
+      floatingScoreRef.current.classList.remove("active");
+    }, 1000);
+  }, [score]);
 
   const isSelect = (id) => {
     const index = lists.findIndex((list) => list.id === id);
@@ -41,13 +60,14 @@ function App() {
       setList(shuffleList(assignNewId(newList)));
 
       const newScore = score + 1;
+      floatingScoreRef.current.classList.add("active");
       setScore(newScore);
 
       if (newScore > bestScoreRef.current) {
         bestScoreRef.current = newScore;
       }
 
-      if (newScore === lists.length) {
+      if (newScore === cardLen) {
         setIsWinner(true);
         setIsGameOver(true);
       }
@@ -81,11 +101,25 @@ function App() {
   return (
     <>
       <header>
-        <Result score={score} bestScore={bestScoreRef.current} />
+        <div className="logo">Memory Game🤔</div>
+        <div ref={floatingScoreRef} className="floating_score">
+          +1🎖️
+        </div>
+        <Result
+          score={score}
+          cardLen={cardLen}
+          bestScore={bestScoreRef.current}
+        />
       </header>
       <main>
         <Board handleIsSelect={handleIsSelect} lists={lists} />
-        <Dialog isWinner={isWinner} isGameOver={isGameOver} reset={reset} />
+        <Dialog
+          isWinner={isWinner}
+          isGameOver={isGameOver}
+          score={score}
+          cardLen={cardLen}
+          reset={reset}
+        />
       </main>
     </>
   );
