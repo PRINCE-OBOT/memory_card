@@ -40,7 +40,7 @@ function App() {
   const bestScoreRef = useRef(score);
   const floatingScoreRef = useRef(null);
 
-  const cardLen = lists.length
+  const cardLen = lists.length;
 
   useEffect(() => {
     setTimeout(() => {
@@ -112,7 +112,7 @@ function App() {
         />
       </header>
       <main>
-        <Board handleIsSelect={handleIsSelect} lists={lists} />
+        <Board handleIsSelect={handleIsSelect} lists={lists} setList={setList} />
         <Dialog
           isWinner={isWinner}
           isGameOver={isGameOver}

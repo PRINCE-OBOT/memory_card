@@ -15,4 +15,12 @@ section#board {
   aspect-ratio: 0.8/1;
   background: rgb(234, 233, 230);
   border-radius: var(--sz-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p{
+    text-transform: capitalize;
+    letter-spacing: 2px;
+  }
 }
