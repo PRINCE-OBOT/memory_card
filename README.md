@@ -1,16 +1,44 @@
-# React + Vite
+# Memory Card Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Memory Card game built as part of [The Odin Project Memory Card Project](https://www.theodinproject.com/lessons/node-path-react-new-memory-card) curriculum to practice React fundamentals such as state management, side effects, and component-based architecture.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+* Click cards to gain points
+* Cards shuffle after every click
+* Tracks current score
+* Tracks best score
+* Resets game when a card is clicked twice
+* Dynamic rendering of card components
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* React
+* JavaScript (ES6+)
+* CSS
+* Vite 
+
+---
+
+## Game Rules
+
+* Click each card only once per round
+* Clicking a new card increases score
+* Clicking a repeated card resets current score
+* Best score is tracked during session
+
+---
+
+## What I Learned
+
+* React state management (`useState`)
+* Side effects (`useEffect`)
+* Component-based architecture
+* Props handling
+* Array shuffling logic
+
+
